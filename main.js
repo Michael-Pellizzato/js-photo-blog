@@ -10,3 +10,36 @@ Font utilizzati:
 titoli: ‘Edu Tas Beginner’, sans-serif;
 date: ‘Sometype Mono’, ‘monospace’;*/
 
+let cartolina = document.querySelector(".row")
+
+fetch("https://lanciweb.github.io/demo/api/pictures/" , { method: "GET"})
+.then(response => response.json())
+.then(image => {
+    console.log(image)
+    image.forEach((element) => {
+        console.log(element.id)
+        
+        cartolina.innerHTML += 
+    `
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="card mb-3">
+            <div class="position-absolute top-0 start-50 translate-middle">
+                <img class="" src="./img/pin.svg" alt="">
+            </div>
+                <img width="100%" src= ${element.url} card-img-top p-3" alt="">
+            <div class="card-body">
+                <p class="card-text">${element.title}</p>
+                <p class="card-text">${element.date}</p>
+            </div>
+        </div>
+    </div>  
+
+    `
+    });
+    
+    
+})
+.catch(error => {
+    console.error(error)
+})
+
