@@ -11,6 +11,7 @@ titoli: ‘Edu Tas Beginner’, sans-serif;
 date: ‘Sometype Mono’, ‘monospace’;*/
 
 let cartolina = document.querySelector(".row")
+let overlay = document.querySelector(".over")
 
 fetch("https://lanciweb.github.io/demo/api/pictures/" , { method: "GET"})
 .then(response => response.json())
@@ -21,7 +22,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/" , { method: "GET"})
         
         cartolina.innerHTML += 
     `
-    <div class="col-12 col-sm-6 col-md-4">
+    <div class="col-12 col-sm-6 col-md-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="card mb-3">
             <div class="position-absolute top-0 start-50 translate-middle">
                 <img class="" src="./img/pin.svg" alt="">
@@ -39,6 +40,8 @@ fetch("https://lanciweb.github.io/demo/api/pictures/" , { method: "GET"})
     
     
 })
+
+
 .catch(error => {
     console.error(error)
 })
